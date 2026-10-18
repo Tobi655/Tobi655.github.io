@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aamer | Web Developer for Local Businesses in Maharashtra</title>
+  <meta name="description"
+    content="Independent web developer based in Pune. I build fast, clean websites and custom web tools for small businesses, clinics, and coaching classes across Maharashtra.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --surface-subtle: #f4f4f2;
+      --border: #e7e5e4;
+      --border-dark: #d6d3d1;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --text-light: #78716c;
+      --primary: #0f172a;
+      --primary-hover: #1e293b;
+      --accent: #d97706;
+      --accent-soft: #fef3c7;
+      --accent-dark: #b45309;
+      --wa: #16a34a;
+      --wa-hover: #15803d;
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mr: "Hind", "Plus Jakarta Sans", system-ui, sans-serif;
+      --radius: 12px;
+      --container: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body.lang-mr {
+      font-family: var(--font-mr);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 250, 249, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-city {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-light);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Language Switcher */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: border-color 0.15s;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--border-dark);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      border-radius: 999px;
+      transition: all 0.15s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-header {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+
+    .btn-header:hover {
+      background: var(--primary-hover);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .btn-dark {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-dark:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-whatsapp {
+      background: var(--wa);
+      color: #ffffff;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--wa-hover);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-subtle);
+      border-color: var(--border-dark);
+    }
+
+    .btn-sm {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 7px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 660px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .meta-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Section Typography */
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+      max-width: 640px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    /* Selected Work Section */
+    .work-section {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-dark);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .project-media {
+      background: #111827;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-media img {
+      transform: scale(1.02);
+    }
+
+    .project-content {
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-tag {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .project-narrative {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-points {
+      background: var(--surface-subtle);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .project-points p {
+      margin-bottom: 0.4rem;
+    }
+
+    .project-points p:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-points strong {
+      color: var(--text);
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-light);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    /* What I Do / Services */
+    .services-section {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card.highlight {
+      background: var(--surface);
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .service-for {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .service-list li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      padding-left: 1.4rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .service-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Principles / Why Work With Me */
+    .principles-section {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .principle-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.01em;
+    }
+
+    .principle-item p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Process */
+    .process-section {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-item {
+      position: relative;
+    }
+
+    .step-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-item h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* About & FAQ */
+    .about-section {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    .about-bio p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .about-bio strong {
+      color: var(--text);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.95rem 1.2rem;
+      transition: border-color 0.15s;
+    }
+
+    details[open] {
+      border-color: var(--border-dark);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.98rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      margin-top: 0.65rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Contact / Call to Action */
+    .contact-section {
+      padding: 5rem 0 6rem;
+      background: var(--surface);
+    }
+
+    .contact-box {
+      max-width: 640px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .direct-contacts {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .direct-contacts a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 3.5rem;
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(28, 25, 23, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 40;
+    }
+
+    .drawer-body {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .drawer-links a {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-media {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        height: 240px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links, .nav-actions .btn-header {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 3rem 0 2.5rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-buttons .btn {
+        width: 100%;
+      }
+
+      .project-content {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .project-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .project-links .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container nav-bar">
+      <a href="#top" class="brand">
+        <span>Aamer</span>
+        <span class="brand-city" data-i18n="header_city">Pune, MH</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#services" data-i18n="nav_services">Services &amp; Pricing</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </nav>
+
+      <!-- Nav Actions (Lang switcher & Contact button) -->
+      <div class="nav-actions">
+        <!-- Language Switcher Pill -->
+        <button class="lang-toggle" id="langSwitchBtn" type="button" aria-label="Toggle language between English and Marathi">
+          <span class="lang-btn active" id="btnEn">EN</span>
+          <span class="lang-btn" id="btnMr">मराठी</span>
+        </button>
+
+        <a href="#contact" class="btn-header" data-i18n="nav_contact">Get in Touch</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-body">
+      <nav class="drawer-links" aria-label="Mobile Navigation">
+        <a href="#work" class="drawer-link" data-i18n="nav_work">Work</a>
+        <a href="#services" class="drawer-link" data-i18n="nav_services">Services &amp; Pricing</a>
+        <a href="#about" class="drawer-link" data-i18n="nav_about">About</a>
+        <a href="#faq" class="drawer-link" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" class="drawer-link" data-i18n="nav_contact">Get in Touch</a>
+      </nav>
+      <a class="btn btn-whatsapp" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" rel="noopener" data-i18n="btn_hero_wa">
+        Message on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span data-i18n="hero_status">Available for projects in Maharashtra</span>
+        </div>
+
+        <h1 data-i18n="hero_title">
+          Websites and web tools built for real local businesses.
+        </h1>
+
+        <p class="lead" data-i18n="hero_desc">
+          I'm Aamer, an independent web developer in Pune. I help shops, clinics, coaching institutes, and consultancies get found on Google, connect easily on WhatsApp, and automate daily manual tasks.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.075-1.927-.463-1.654-.689-2.73-2.39-2.812-2.502-.083-.111-.67-0.892-.67-1.701 0-.81.423-1.208.573-1.373.15-.165.33-.207.44-.207.11 0 .22.001.316.006.102.005.239-.039.373.284.144.348.494 1.206.538 1.295.044.09.073.195.015.311-.06.115-.09.186-.178.29-.089.103-.186.23-.266.309-.09.088-.184.184-.079.364.105.18.468.773 1.004 1.25.69.614 1.272.805 1.452.894.18.09.285.076.39-.045.105-.12.449-.524.57-.704.12-.18.24-.15.405-.09.165.06 1.05.495 1.23.585.18.09.3.135.345.21.045.075.045.435-.099.84z"/></svg>
+            <span data-i18n="btn_hero_wa">Message me on WhatsApp</span>
+          </a>
+          <a class="btn btn-secondary" href="#work" data-i18n="btn_hero_work">
+            Browse Recent Work &darr;
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="meta_1">Delivered in 7 to 10 days</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="meta_2">100% code &amp; domain ownership</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="meta_3">Direct communication (no agency middleman)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work Section -->
+    <section id="work" class="work-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="work_label">Featured Work</span>
+          <h2 class="section-title" data-i18n="work_heading">Real systems built for real operations</h2>
+          <p class="section-desc" data-i18n="work_sub">
+            These aren't concept Figma designs. They are production web portals, prediction tools, and payment gateways built for educational operations in Pune and Maharashtra.
+          </p>
+        </div>
+
+        <div class="project-list">
+
+          <!-- Project 1: New Horizon Admissions Portal -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="image01.png" alt="New Horizon Student Dashboard" loading="eager">
+            </div>
+            <div class="project-content">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Web Application</span>
+                  <span>Pune, MH</span>
+                  <span>&bull; Live</span>
+                </div>
+                <h3 class="project-title">New Horizon Educational Consultancy Portal</h3>
+                <p class="project-narrative" data-i18n="p1_narrative">
+                  During MHT-CET and NEET admission rounds, the consultancy was receiving hundreds of calls daily and student documents were scattered across WhatsApp chats. I designed and developed an integrated portal with separate dashboards for counselors and students.
+                </p>
+                <div class="project-points">
+                  <p><strong data-i18n="p1_pt1_k">The Challenge:</strong> <span data-i18n="p1_pt1_v">Manual document verification and WhatsApp clutter during high-pressure CAP rounds.</span></p>
+                  <p><strong data-i18n="p1_pt2_k">What I Built:</strong> <span data-i18n="p1_pt2_v">Student document vault, personalized admission milestone tracker, and deadline notification system.</span></p>
+                  <p><strong data-i18n="p1_pt3_k">Impact:</strong> <span data-i18n="p1_pt3_v">Handled 1,200+ candidates smoothly; reduced routine inquiry phone calls by over 70%.</span></p>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-pill">Responsive Web</span>
+                  <span class="tech-pill">Authentication</span>
+                  <span class="tech-pill">Document Vault</span>
+                  <span class="tech-pill">Lead Management</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary btn-sm" href="https://newhorizonconsultancy.in" target="_blank" rel="noopener" data-i18n="btn_visit_site">
+                  Visit Live Website &nearr;
+                </a>
+                <a class="btn btn-whatsapp btn-sm" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20saw%20your%20work%20on%20New%20Horizon%20and%20want%20to%20discuss%20a%20similar%20portal." target="_blank" rel="noopener" data-i18n="btn_discuss_similar">
+                  Discuss Similar Project
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: MHT-CET College Predictor -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="image04.png" alt="MHT-CET Engineering College Predictor" loading="eager">
+            </div>
+            <div class="project-content">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Interactive Tool</span>
+                  <span>Maharashtra</span>
+                  <span>&bull; 5,000+ Uses</span>
+                </div>
+                <h3 class="project-title" data-i18n="p2_heading">MHT-CET Engineering College Cutoff Predictor</h3>
+                <p class="project-narrative" data-i18n="p2_narrative">
+                  Every year, DTE Maharashtra publishes 500+ page cutoff PDFs. Parents and students had to manually cross-reference percentiles across dozens of colleges. I extracted and cleaned the cutoff data into a structured system with an instant multi-filter search tool.
+                </p>
+                <div class="project-points">
+                  <p><strong data-i18n="p2_pt1_k">The Challenge:</strong> <span data-i18n="p2_pt1_v">Navigating complex DTE cutoff PDFs across dozens of categories (GOPEN, LOPEN, TFWS, etc.).</span></p>
+                  <p><strong data-i18n="p2_pt2_k">What I Built:</strong> <span data-i18n="p2_pt2_v">Fast client-side cutoff search engine covering PICT, COEP, VJTI, and all major Maharashtra colleges.</span></p>
+                  <p><strong data-i18n="p2_pt3_k">Impact:</strong> <span data-i18n="p2_pt3_v">Students get clear college shortlists in under 5 seconds; served as an organic lead generator for the consultancy.</span></p>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-pill">Data Processing</span>
+                  <span class="tech-pill">Filter Algorithm</span>
+                  <span class="tech-pill">Fast Client Search</span>
+                  <span class="tech-pill">Mobile UI</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary btn-sm" href="https://newhorizonconsultancy.in" target="_blank" rel="noopener" data-i18n="btn_test_demo">
+                  Test Tool &nearr;
+                </a>
+                <a class="btn btn-whatsapp btn-sm" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20need%20a%20calculator%20or%20search%20tool%20built%20for%20my%20business." target="_blank" rel="noopener" data-i18n="btn_discuss_similar">
+                  Build Custom Tool
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Batch Delivery & Payment Gateway -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="image02.png" alt="Digital Batch Materials Portal" loading="eager">
+            </div>
+            <div class="project-content">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Payment Integration</span>
+                  <span>UPI / Cashfree</span>
+                  <span>&bull; Automated</span>
+                </div>
+                <h3 class="project-title" data-i18n="p3_heading">Automated Digital Material Delivery System</h3>
+                <p class="project-narrative" data-i18n="p3_narrative">
+                  Previously, study packages and curated cutoff books required students to send payment screenshots on WhatsApp, followed by manual verification and email attachments. I integrated a direct Cashfree payment gateway with instant self-service access.
+                </p>
+                <div class="project-points">
+                  <p><strong data-i18n="p3_pt1_k">The Challenge:</strong> <span data-i18n="p3_pt1_v">Manual payment verification on WhatsApp was slow, caused errors, and delayed material delivery.</span></p>
+                  <p><strong data-i18n="p3_pt2_k">What I Built:</strong> <span data-i18n="p3_pt2_v">UPI &amp; Card checkout flow with automated webhook unlocking downloadable resources in student accounts.</span></p>
+                  <p><strong data-i18n="p3_pt3_k">Impact:</strong> <span data-i18n="p3_pt3_v">100% hands-off fulfillment. Zero wait time for students, zero manual bookkeeping for the team.</span></p>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-pill">Cashfree Payment Gateway</span>
+                  <span class="tech-pill">UPI / QR</span>
+                  <span class="tech-pill">Webhooks</span>
+                  <span class="tech-pill">Digital Access</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary btn-sm" href="#contact" data-i18n="btn_inquire_flow">
+                  Inquire About Setup &darr;
+                </a>
+                <a class="btn btn-whatsapp btn-sm" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20want%20to%20set%20up%20UPI%20payments%20and%20automated%20delivery." target="_blank" rel="noopener" data-i18n="btn_discuss_similar">
+                  Discuss Similar
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Pricing -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="services_label">Offerings</span>
+          <h2 class="section-title" data-i18n="services_heading">What I can build for your business</h2>
+          <p class="section-desc" data-i18n="services_sub">
+            Straightforward scopes, fixed turnaround times, and realistic pricing. No technical jargon.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <h3 class="service-title" data-i18n="s1_title">Single-Page Website</h3>
+            <p class="service-for" data-i18n="s1_for">Best for clinics, single shops, tutors, and professional consultants.</p>
+            <ul class="service-list">
+              <li data-i18n="s1_l1">Complete showcase of your services, timing, and address</li>
+              <li data-i18n="s1_l2">Direct one-tap WhatsApp chat and phone call buttons</li>
+              <li data-i18n="s1_l3">Google Maps embedding for easy directions</li>
+              <li data-i18n="s1_l4">Built mobile-first for fast loading on 4G phones</li>
+              <li data-i18n="s1_l5">Delivered in 5 to 7 days</li>
+            </ul>
+            <a class="btn btn-secondary btn-sm" href="#contact" data-i18n="btn_ask_quote">Ask for a Quote &rarr;</a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card highlight">
+            <span class="service-badge" data-i18n="s2_badge">Most Popular</span>
+            <h3 class="service-title" data-i18n="s2_title">Website + Google Profile Setup</h3>
+            <p class="service-for" data-i18n="s2_for">Best if you want new nearby customers searching "near me" in your area.</p>
+            <ul class="service-list">
+              <li data-i18n="s2_l1">Fast, clean responsive business website (3 to 5 pages)</li>
+              <li data-i18n="s2_l2">Setup &amp; verification of Google Business Profile on Maps</li>
+              <li data-i18n="s2_l3">Review collection QR code to get 5-star ratings from customers</li>
+              <li data-i18n="s2_l4">Local SEO optimization for your city / locality</li>
+              <li data-i18n="s2_l5">Delivered in 7 to 10 days</li>
+            </ul>
+            <a class="btn btn-dark btn-sm" href="#contact" data-i18n="btn_choose_plan">Choose This Package &rarr;</a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <h3 class="service-title" data-i18n="s3_title">Custom Tool / Sheet Automation</h3>
+            <p class="service-for" data-i18n="s3_for">For businesses drowning in daily Excel tasks or manual WhatsApp copy-pasting.</p>
+            <ul class="service-list">
+              <li data-i18n="s3_l1">Custom calculators, cutoff searchers, or cost estimators</li>
+              <li data-i18n="s3_l2">Google Sheets to automated WhatsApp notification workflows</li>
+              <li data-i18n="s3_l3">UPI payment integration (Cashfree, Razorpay, or QR links)</li>
+              <li data-i18n="s3_l4">Password-protected student or client login areas</li>
+              <li data-i18n="s3_l5">Custom quote based on scope</li>
+            </ul>
+            <a class="btn btn-secondary btn-sm" href="#contact" data-i18n="btn_discuss_tool">Discuss Your Workflow &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Work With An Independent Dev -->
+    <section class="principles-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="why_label">Work Principles</span>
+          <h2 class="section-title" data-i18n="why_heading">Why clients prefer working with me directly</h2>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-item">
+            <h3 data-i18n="pr1_title">100% Client Ownership</h3>
+            <p data-i18n="pr1_desc">Your domain, hosting account, and source code are always in your name. I do not lock your assets or hold domains hostage.</p>
+          </div>
+          <div class="principle-item">
+            <h3 data-i18n="pr2_title">Design Draft Before Commitment</h3>
+            <p data-i18n="pr2_desc">We discuss your exact needs and review a design outline first. You only move forward when you're confident in the plan.</p>
+          </div>
+          <div class="principle-item">
+            <h3 data-i18n="pr3_title">30 Days Post-Launch Support</h3>
+            <p data-i18n="pr3_desc">Once live, I remain available on WhatsApp for 30 days to handle text adjustments, photo additions, and small tweaks at no extra charge.</p>
+          </div>
+          <div class="principle-item">
+            <h3 data-i18n="pr4_title">Direct, Jargon-Free Communication</h3>
+            <p data-i18n="pr4_desc">You speak with the developer actually writing your code. We can talk comfortably in Marathi, Hindi, or English.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="proc_label">Process</span>
+          <h2 class="section-title" data-i18n="proc_heading">How a project moves forward</h2>
+        </div>
+
+        <div class="process-timeline">
+          <div class="step-item">
+            <div class="step-num">STEP 01</div>
+            <h3 data-i18n="st1_title">Discovery Call</h3>
+            <p data-i18n="st1_desc">A 15-minute phone or WhatsApp conversation about your business, target audience, and required pages.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">STEP 02</div>
+            <h3 data-i18n="st2_title">Design &amp; Scope Draft</h3>
+            <p data-i18n="st2_desc">I send a clear content outline and visual mockup so you see how the website looks before any coding starts.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">STEP 03</div>
+            <h3 data-i18n="st3_title">Build &amp; Mobile Testing</h3>
+            <p data-i18n="st3_desc">I build the site with clean, fast code, verify it thoroughly on mobile screens, and make your revisions.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">STEP 04</div>
+            <h3 data-i18n="st4_title">Launch &amp; Handoff</h3>
+            <p data-i18n="st4_desc">We point your domain live, set up your Google listing, and you receive 30 days of post-launch assistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & FAQ -->
+    <section id="about" class="about-section">
+      <div class="container about-grid">
+        <div class="about-bio">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="section-label" data-i18n="about_label">Background</span>
+            <h2 class="section-title" data-i18n="about_heading">A bit about me</h2>
+          </div>
+          <p data-i18n="bio_p1">
+            I am Aamer, a web developer based in Pune with a degree in Computer Science. In addition to client development, I manage technical infrastructure for <strong>New Horizon Educational Consultancy</strong>, guiding thousands of students through MHT-CET, NEET, and CAP rounds every year.
+          </p>
+          <p data-i18n="bio_p2">
+            Working directly in local education and services taught me a crucial lesson: <strong>business owners don't need heavy frameworks or 40-page WordPress themes that crash on cheap hosting.</strong> They need fast, reliable web pages that load in under 2 seconds on a customer's phone and make it effortless to call or message.
+          </p>
+          <p data-i18n="bio_p3">
+            I handle projects end-to-end: UI design, copywriting assistance in English and Marathi, frontend code, and Google Maps listing.
+          </p>
+        </div>
+
+        <div id="faq" class="faq-container">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="section-label" data-i18n="faq_label">Answers</span>
+            <h2 class="section-title" data-i18n="faq_heading">Frequently asked questions</h2>
+          </div>
+
+          <div class="faq-list">
+            <details open>
+              <summary data-i18n="q1">How much does a typical website cost?</summary>
+              <p data-i18n="a1">A clean single-page site for a local clinic, shop, or consultancy typically starts around ₹8,000 to ₹12,000. Multi-page business sites or tools with custom automation depend on the scope. Send me a quick WhatsApp note with what you need and I'll give you a clear, fixed estimate.</p>
+            </details>
+            <details>
+              <summary data-i18n="q2">Do I need to arrange hosting and domain myself?</summary>
+              <p data-i18n="a2">You can purchase it yourself, or I can walk you through purchasing it on standard platforms (like Hostinger or Namecheap). In either case, the billing and credentials remain 100% under your ownership.</p>
+            </details>
+            <details>
+              <summary data-i18n="q3">Can the website be in Marathi?</summary>
+              <p data-i18n="a3">Yes. Many local businesses benefit greatly from conversational Marathi (बोलीभाषा), where standard terms like Website, WhatsApp, Mobile, and Timing remain in English while the rest is in natural Marathi. Bilingual toggles are also supported.</p>
+            </details>
+            <details>
+              <summary data-i18n="q4">How do customers pay through the website?</summary>
+              <p data-i18n="a4">We can integrate direct UPI payment links (GPay, PhonePe, Paytm, BHIM) for instant fee transfers, or formal payment gateways like Cashfree/Razorpay if you need automated receipts and card support.</p>
+            </details>
+            <details>
+              <summary data-i18n="q5">What happens after the website is launched?</summary>
+              <p data-i18n="a5">Every project includes 30 days of complimentary support for minor text updates, photo changes, or question solving. Even after 30 days, I am always reachable directly on WhatsApp.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-label" data-i18n="contact_label">Let's Connect</span>
+          <h2 data-i18n="contact_heading">Let's talk about your business website.</h2>
+          <p data-i18n="contact_desc">
+            Send me a message with your business name and what you have in mind. I'll get back to you within a few hours with honest advice and a straightforward quote.
+          </p>
+
+          <div class="contact-buttons">
+            <a class="btn btn-whatsapp" href="https://wa.me/911234567890?text=Hi%20Aamer%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.075-1.927-.463-1.654-.689-2.73-2.39-2.812-2.502-.083-.111-.67-0.892-.67-1.701 0-.81.423-1.208.573-1.373.15-.165.33-.207.44-.207.11 0 .22.001.316.006.102.005.239-.039.373.284.144.348.494 1.206.538 1.295.044.09.073.195.015.311-.06.115-.09.186-.178.29-.089.103-.186.23-.266.309-.09.088-.184.184-.079.364.105.18.468.773 1.004 1.25.69.614 1.272.805 1.452.894.18.09.285.076.39-.045.105-.12.449-.524.57-.704.12-.18.24-.15.405-.09.165.06 1.05.495 1.23.585.18.09.3.135.345.21.045.075.045.435-.099.84z"/></svg>
+              <span data-i18n="btn_cta_wa">Chat on WhatsApp</span>
+            </a>
+            <a class="btn btn-secondary" href="tel:+911234567890">
+              <span data-i18n="btn_cta_call">Direct Call: +91 12345 67890</span>
+            </a>
+          </div>
+
+          <div class="direct-contacts">
+            <p><strong>Aamer</strong> &bull; Independent Web Developer</p>
+            <p>Based in Pune &bull; Working with clients across Pune, Mumbai, Nashik, and Maharashtra</p>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>&copy; 2026 Aamer. Handcrafted with clean HTML, CSS &amp; JavaScript.</div>
+      <div>Pune &bull; Maharashtra</div>
+    </div>
+  </footer>
+
+  <!-- Conversational Marathi Translation Engine -->
+  <script>
+    (function () {
+      // Natural conversational Marathi: keeping common tech/business words in English
+      var marathiData = {
+        header_city: "पुणे, महाराष्ट्र",
+        nav_work: "कामे",
+        nav_services: "सेवा आणि दर",
+        nav_about: "माझ्याबद्दल",
+        nav_faq: "FAQ",
+        nav_contact: "संपर्क करा",
+
+        hero_status: "महाराष्ट्रातील नवीन कामांसाठी उपलब्ध",
+        hero_title: "स्थानिक व्यवसायांसाठी दर्जेदार Websites आणि टूल्स.",
+        hero_desc: "मी आमिर, पुण्यातील Web Developer. दुकाने, क्लिनिक, क्लासेस आणि कन्सल्टन्सींना Google वर सापडण्यासाठी, WhatsApp वरून थेट ग्राहक मिळवण्यासाठी आणि रोजची कामे सोपी करण्यासाठी मी मदत करतो.",
+        btn_hero_wa: "WhatsApp वर बोला",
+        btn_hero_work: "माझी कामे पहा ↓",
+        meta_1: "७ ते १० दिवसांत डिलिव्हरी",
+        meta_2: "Domain आणि Code ची १००% मालकी तुमची",
+        meta_3: "थेट संवाद (कोणतीही एजन्सी मधे नाही)",
+
+        work_label: "केलेली कामे",
+        work_heading: "प्रत्यक्ष व्यवसायांसाठी बनवलेल्या सिस्टीम्स",
+        work_sub: "हे केवळ डिझाईन्स नाहीत. पुणे आणि महाराष्ट्रातील ॲडमिशन आणि व्यवसायांसाठी दररोज प्रत्यक्षात वापरल्या जाणाऱ्या लाईव्ह सिस्टीम्स आहेत.",
+
+        p1_narrative: "MHT-CET आणि NEET प्रवेश प्रक्रियेदरम्यान शेकडो फोन कॉल्स येत होते आणि कागदपत्रे WhatsApp वर विखुरलेली होती. मी विद्यार्थी आणि सल्लागारांसाठी स्वतंत्र डॅशबोर्ड असलेले कस्टम पोर्टल विकसित केले.",
+        p1_pt1_k: "समस्या:",
+        p1_pt1_v: "CAP राऊंड्सदरम्यान कागदपत्रांची पडताळणी आणि WhatsApp वर होणारा गोंधळ.",
+        p1_pt2_k: "मी काय बनवले:",
+        p1_pt2_v: "विद्यार्थ्यांसाठी स्वतंत्र Document Vault, ॲप्लिकेशन ट्रॅकर आणि महत्त्वाच्या तारखांचे अलर्ट्स.",
+        p1_pt3_k: "फायदा:",
+        p1_pt3_v: "१,२००+ विद्यार्थ्यांना विनाअडथळा सेवा मिळाली; रोजचे चौकशीचे फोन कॉल्स ७०% कमी झाले.",
+        btn_visit_site: "Live Website पहा ↗",
+        btn_discuss_similar: "असाच प्रोजेक्ट हवाय",
+
+        p2_heading: "MHT-CET इंजिनिअरिंग कॉलेज कटऑफ प्रेडिक्टर",
+        p2_narrative: "दरवर्षी DTE चे ५०० पानांचे कटऑफ PDF वाचणे पालक आणि विद्यार्थ्यांना कठीण जात होते. मी या कटऑफ डेटाचे वर्गीकरण करून एका क्लिकवर अचूक कॉलेज दाखवणारे सर्च टूल तयार केले.",
+        p2_pt1_k: "समस्या:",
+        p2_pt1_v: "DTE चे लांबलचक PDF तपासून योग्य कॉलेज व ब्रँच शोधण्यात जाणारा वेळ.",
+        p2_pt2_k: "मी काय बनवले:",
+        p2_pt2_v: "PICT, COEP, VJTI आणि सर्व नामांकित कॉलेजेसचे कटऑफ काही सेकंदात दाखवणारे सर्च इंजिन.",
+        p2_pt3_k: "फायदा:",
+        p2_pt3_v: "विद्यार्थ्यांना ५ सेकंदात कॉलेजची यादी मिळते; यातून हजारो पालकांनी कन्सल्टन्सीकडे थेट संपर्क केला.",
+        btn_test_demo: "टूल वापरून पहा ↗",
+
+        p3_heading: "अभ्यास साहित्य आणि डिजिटल डिलिव्हरी सिस्टीम",
+        p3_narrative: "विद्यार्थ्यांकडून फीचे स्क्रीनशॉट WhatsApp वर घेणे आणि नंतर मॅन्युअली PDF पाठवणे यामध्ये खूप वेळ जात होता. मी थेट Cashfree पेमेंट गेटवे आणि इन्स्टंट लॉगिन सुविधा जोडली.",
+        p3_pt1_k: "समस्या:",
+        p3_pt1_v: "WhatsApp वर मॅन्युअल पेमेंट तपासणीमुळे होणारा उशीर आणि कामाचा ताण.",
+        p3_pt2_k: "मी काय बनवले:",
+        p3_pt2_v: "UPI आणि कार्ड पेमेंट होताच विद्यार्थ्यांच्या खात्यात स्टडी मटेरियल अनलॉक होणारी स्वयंचलित व्यवस्था.",
+        p3_pt3_k: "फायदा:",
+        p3_pt3_v: "१००% ऑटोमॅटिक प्रक्रिया. विद्यार्थ्यांना तात्काळ साहित्य मिळते, टीमचा वेळ वाचतो.",
+        btn_inquire_flow: "सेटअपबद्दल विचारा ↓",
+
+        services_label: "सेवा",
+        services_heading: "तुमच्या व्यवसायासाठी मी काय बनवून देऊ शकतो?",
+        services_sub: "स्पष्ट कामाची व्याप्ती, ठरलेली मुदत आणि योग्य दर. कोणतेही अनाकलनीय टेक्निकल शब्द नाहीत.",
+
+        s1_title: "Single-Page Website",
+        s1_for: "क्लिनिक, छोटी दुकाने, क्लासेस आणि वैयक्तिक कन्सल्टंट्ससाठी योग्य.",
+        s1_l1: "तुमच्या सेवा, वेळा आणि पत्त्याचे सुटसुटीत सादरीकरण",
+        s1_l2: "थेट एका टॅपमध्ये कॉल आणि WhatsApp बटण",
+        s1_l3: "ग्राहकांना रस्ता शोधण्यासाठी Google Maps ची जोडणी",
+        s1_l4: "मोबाईलवर १ ते २ सेकंदात उघडणारी वेगवान साईट",
+        s1_l5: "५ ते ७ दिवसांत तयार",
+        btn_ask_quote: "अंदाज विचारा →",
+
+        s2_badge: "सर्वात लोकप्रिय",
+        s2_title: "Website + Google Maps प्रोफाइल",
+        s2_for: "तुमच्या भागातील लोकांनी Google वर 'Near Me' शोधल्यावर प्रथम दिसण्यासाठी.",
+        s2_l1: "आधुनिक आणि वेगवान बिझनेस वेबसाईट (३ ते ५ पाने)",
+        s2_l2: "Google Business Profile आणि Google Maps लिस्टिंग सेटअप",
+        s2_l3: "ग्राहकांकडून ५-स्टार रिव्ह्यू मिळवण्यासाठी खास QR Code",
+        s2_l4: "तुमच्या शहरासाठी Local SEO ऑप्टिमायझेशन",
+        s2_l5: "७ ते १० दिवसांत तयार",
+        btn_choose_plan: "हा पर्याय निवडा →",
+
+        s3_title: "Custom टूल / शीट ऑटोमेशन",
+        s3_for: "Excel आणि WhatsApp मधील रोजची मॅन्युअल कामे कमी करण्यासाठी.",
+        s3_l1: "कस्टम कॅल्क्युलेटर, कटऑफ सर्च किंवा कोटेशन टूल्स",
+        s3_l2: "Google Sheets मधून आपोआप WhatsApp मेसेज जाण्याची सिस्टीम",
+        s3_l3: "UPI पेमेंट जोडणी (Cashfree, Razorpay किंवा QR लिंक्स)",
+        s3_l4: "विद्यार्थी किंवा ग्राहकांसाठी पासवर्ड लॉगिन व्यवस्था",
+        s3_l5: "कामानुसार ठरलेला दर",
+        btn_discuss_tool: "कामाची चर्चा करा →",
+
+        why_label: "कामाची पद्धत",
+        why_heading: "माझ्यासोबत थेट काम करण्याचे फायदे",
+        pr1_title: "१००% मालमत्ता तुमचीच",
+        pr1_desc: "तुमचे Domain, Hosting आणि Code पूर्णपणे तुमच्या नावावर असतात. मी कधीही कोणतीही गोष्ट अडकवून ठेवत नाही.",
+        pr2_title: "पसंत पडल्याशिवाय पुढे नाही",
+        pr2_desc: "आपण प्रथम कामाचा मसुदा आणि डिझाईन ठरवतो. कामाची दिशा आवडल्यावरच आपण पुढील पाऊल टाकतो.",
+        pr3_title: "३० दिवस मोफत सपोर्ट",
+        pr3_desc: "साईट सुरू झाल्यावर छोटे बदल, मजकूर किंवा फोटो बदलण्यासाठी पुढील ३० दिवस मोफत मदत उपलब्ध असते.",
+        pr4_title: "थेट संवाद, मध्यस्थ नाही",
+        pr4_desc: "थेट माझ्याशी बोला. आपण मराठी, हिंदी किंवा इंग्लिशमध्ये सहज संवाद साधू शकतो.",
+
+        proc_label: "पद्धत",
+        proc_heading: "प्रकल्प कसा पूर्ण होतो?",
+        st1_title: "प्राथमिक चर्चा",
+        st1_desc: "तुमचा व्यवसाय, ग्राहक आणि गरजेची पाने समजून घेण्यासाठी १५ मिनिटांचा कॉल किंवा WhatsApp संवाद.",
+        st2_title: "मसुदा आणि डिझाईन",
+        st2_desc: "कोडिंग सुरू करण्यापूर्वी वेबसाईट कशी दिसेल याचा स्पष्ट मसुदा मी तुम्हाला पाठवतो.",
+        st3_title: "डेव्हलपमेंट आणि मोबाईल टेस्टिंग",
+        st3_desc: "वेबसाईट तयार केली जाते आणि मोबाईलवर कसून तपासली जाते.",
+        st4_title: "लाँच आणि हँडओव्हर",
+        st4_desc: "साईट तुमच्या डोमेनवर लाईव्ह होते आणि पुढील ३० दिवस मोफत सपोर्ट मिळतो.",
+
+        about_label: "माझ्याबद्दल",
+        about_heading: "थोडक्यात ओळख",
+        bio_p1: "मी आमिर, पुण्यातील Web Developer असून Computer Science चा पदवीधर आहे. क्लायंट कामांव्यतिरिक्त मी <strong>New Horizon Educational Consultancy</strong> ची तांत्रिक बाजू सांभाळतो, जिथे दरवर्षी हजारो विद्यार्थ्यांना MHT-CET आणि CAP ॲडमिशनमध्ये मदत केली जाते.",
+        bio_p2: "स्थानिक शिक्षण आणि सेवा क्षेत्रात काम करताना मला एक गोष्ट स्पष्ट समजली: <strong>स्थानिक व्यावसायिकांना अवजड किंवा संथ चालणाऱ्या वर्डप्रेस थीमची गरज नसते.</strong> त्यांना मोबाईलवर २ सेकंदात उघडणारी, न अडखळणारी आणि ग्राहकांना लगेच कॉल करता येईल अशी सोपी वेबसाईट हवी असते.",
+        bio_p3: "मी संपूर्ण काम स्वतः करतो: डिझाईन, मराठी-इंग्लिश मजकुराची मांडणी, कोडिंग आणि Google Maps सेटअप.",
+
+        faq_label: "शंका व उत्तरे",
+        faq_heading: "वारंवार विचारले जाणारे प्रश्न",
+        q1: "साधारणपणे किती खर्च येतो?",
+        a1: "स्थानिक क्लिनिक, दुकान किंवा कन्सल्टन्सीसाठी सिंगल-पेज वेबसाईट साधारण ₹८,००० ते ₹१२,००० दरम्यान सुरू होते. मल्टी-पेज किंवा ऑटोमेशन कामांचा दर गरजेनुसार ठरतो. WhatsApp वर संपर्क करा, मी स्पष्ट अंदाज देईन.",
+        q2: "Domain आणि Hosting मी स्वतः घ्यायचे का?",
+        a2: "हो, तुम्ही स्वतः घेऊ शकता किंवा मी योग्य प्लॅटफॉर्मवरून खाती तुमच्याच नावावर तयार करून देतो. मालकी पूर्ण तुमचीच राहते.",
+        q3: "वेबसाईट मराठीत करता येईल का?",
+        a3: "नक्कीच! अनेक स्थानिक व्यवसायांना बोलीभाषेतील मराठीचा खूप फायदा होतो, जिथे सामान्य शब्द (Website, WhatsApp, Mobile) इंग्रजीत राहतात आणि बाकीचे मराठीत असते.",
+        q4: "ग्राहक वेबसाईटवरून पैसे कसे भरू शकतात?",
+        a4: "थेट UPI (Google Pay, PhonePe, Paytm, BHIM) लिंक्स किंवा Cashfree/Razorpay गेटवे जोडून पावत्या आपोआप देण्याची व्यवस्था करता येते.",
+        q5: "वेबसाईट सुरू झाल्यानंतर काही बदल हवे असल्यास?",
+        a5: "प्रत्येक कामासोबत ३० दिवस मोफत सपोर्ट मिळतो. त्यानंतरही किरकोळ कामांसाठी मी WhatsApp वर सहज उपलब्ध असतो.",
+
+        contact_label: "संपर्क",
+        contact_heading: "तुमच्या वेबसाईटबद्दल बोलूया.",
+        contact_desc: "तुमच्या व्यवसायाचे नाव आणि कल्पना WhatsApp वर पाठवा. मी काही तासांत योग्य सल्ला आणि अंदाज पाठवेन.",
+        btn_cta_wa: "WhatsApp वर संवाद साधा",
+        btn_cta_call: "थेट कॉल: +91 12345 67890"
+      };
+
+      // Store initial English content
+      var englishData = {};
+      var elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        englishData[key] = el.innerHTML;
+      });
+
+      var currentLang = "en";
+      var switchBtn = document.getElementById("langSwitchBtn");
+      var btnEn = document.getElementById("btnEn");
+      var btnMr = document.getElementById("btnMr");
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        var data = lang === "mr" ? marathiData : englishData;
+
+        elements.forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (data[key]) {
+            el.innerHTML = data[key];
+          }
+        });
+
+        if (lang === "mr") {
+          document.body.classList.add("lang-mr");
+          document.documentElement.lang = "mr";
+          btnMr.classList.add("active");
+          btnEn.classList.remove("active");
+        } else {
+          document.body.classList.remove("lang-mr");
+          document.documentElement.lang = "en";
+          btnEn.classList.add("active");
+          btnMr.classList.remove("active");
+        }
+
+        try {
+          localStorage.setItem("aamer_lang", lang);
+        } catch (e) {}
+      }
+
+      if (switchBtn) {
+        switchBtn.addEventListener("click", function () {
+          var target = currentLang === "en" ? "mr" : "en";
+          setLanguage(target);
+        });
+      }
+
+      // Mobile Menu Drawer
+      var menuBtn = document.getElementById("menuBtn");
+      var drawer = document.getElementById("mobileDrawer");
+      var drawerLinks = document.querySelectorAll(".drawer-link");
+
+      function toggleDrawer(open) {
+        var isOpen = open !== undefined ? open : drawer.style.display === "block";
+        if (!isOpen) {
+          drawer.style.display = "block";
+          menuBtn.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+        } else {
+          drawer.style.display = "none";
+          menuBtn.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener("click", function () {
+          toggleDrawer();
+        });
+      }
+
+      if (drawer) {
+        drawer.addEventListener("click", function (e) {
+          if (e.target === drawer) {
+            toggleDrawer(true);
+          }
+        });
+      }
+
+      drawerLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          toggleDrawer(true);
+        });
+      });
+
+      // Restore saved language
+      try {
+        var saved = localStorage.getItem("aamer_lang");
+        if (saved === "mr") {
+          setLanguage("mr");
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+</body>
+
+</html>
